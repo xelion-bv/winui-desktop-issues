@@ -11,7 +11,6 @@
   <ItemGroup>
     <None Remove="ItemsControlWorksAsExpected.xaml" />
     <None Remove="ItemsRepeaterIssue.xaml" />
-    <None Remove="MainPage.xaml" />
     <None Remove="MainTabsPanel.xaml" />
   </ItemGroup>
 
@@ -29,12 +28,6 @@
 
   <ItemGroup>
     <Page Update="MainTabsPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
