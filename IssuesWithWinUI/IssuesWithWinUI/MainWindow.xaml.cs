@@ -24,11 +24,11 @@ namespace IssuesWithWinUI
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        public static Microsoft.System.DispatcherQueue MainDispatcherQueue { get; set; }
         public MainWindow()
         {
             this.InitializeComponent();
+            MainDispatcherQueue = DispatcherQueue;
         }
-
-     
     }
 }

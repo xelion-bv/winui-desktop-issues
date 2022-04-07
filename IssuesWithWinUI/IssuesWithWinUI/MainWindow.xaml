@@ -7,9 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <local:ItemsRepeaterIssue Height="40"  />
-        <local:ItemsControlWorksAsExpected Height="40"  />
-    </StackPanel>
-  
+    <local:MainControl/>
+
 </Window>

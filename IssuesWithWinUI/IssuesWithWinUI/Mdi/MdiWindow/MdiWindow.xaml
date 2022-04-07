@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+                    xmlns:local="using:Xelion.Controls"
+                    >
+
+    <!-- Floating Content Control Style -->
+    <Style TargetType="local:MdiWindow">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MdiWindow">
+                    <!-- Root Grid -->
+                    <Grid x:Name="PART_Root"
+                          Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
+                          BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                          BorderThickness="1">
+
+                        <!-- Drag Drop Visual -->
+                        <Polygon x:Name="PART_DragDropVisual"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Fill="DarkSlateGray"
+                                 Points="0,0 30,0, 0,30"/>
+
+                        <!-- Content -->
+                        <ContentPresenter Margin="0,0,0,0"
+                                          HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch"
+                                          ManipulationMode="None"/>
+
+
+                        <Polygon x:Name="PART_DragDropHandle"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Fill="Transparent"
+                                 extensions:Mouse.Cursor="Hand"
+                                 ManipulationMode="None"
+                                 Points="0,0 30,0, 0,30"/>
+
+                        <Button x:Name="PART_CloseButton"
+                                Margin="0,0,0,0"
+                                Padding="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                CornerRadius="0"
+                                IsTabStop="False">
+                            <SymbolIcon Symbol="Clear" Width="10" Height="10"/>
+                        </Button>
+
+
+                        <!--<FontIcon Height="15" Margin="5,0,0,0"
+                                HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Foreground="White"
+                                Glyph="&#xE76F;" />-->
+
+                        <!-- Window move handle -->
+                        <Border x:Name="PART_MoveWindow"
+                                Height="16"
+                                Margin="30,-5,16,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                extensions:Mouse.Cursor="Hand"
+                                ManipulationMode="TranslateY, TranslateX"/>
+
+                        <!-- Resize handles -->
+                        <Border x:Name="PART_ResizeBoth"
+                                Width="12"
+                                Height="12"
+                                Margin="0,0,-5,-5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Background="Transparent"
+                                extensions:Mouse.Cursor="SizeNorthwestSoutheast"
+                                ManipulationMode="TranslateY, TranslateX"/>
+                        <Border x:Name="PART_ResizeHorizontal"
+                                Width="6"
+                                Margin="0,16,-6,16"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Stretch"
+                                Background="Transparent"
+                                extensions:Mouse.Cursor="SizeWestEast"
+                                ManipulationMode="TranslateX"/>
+                        <Border x:Name="PART_ResizeVertical"
+                                Height="6"
+                                Margin="16,0,16,-6"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Bottom"
+                                Background="Transparent"
+                                extensions:Mouse.Cursor="SizeNorthSouth"
+                                ManipulationMode="TranslateY"/>
+
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

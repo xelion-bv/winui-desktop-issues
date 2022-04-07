@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "IssuesWithWinUI3 (Package)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": true
+    },
+    "IssuesWithWinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

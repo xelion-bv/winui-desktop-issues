@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="Xelion.Features.MainWindow.Desktop.MainTabsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:Xelion.Features.MainWindow.Desktop"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             KeyboardAcceleratorPlacementMode="Hidden"
+             mc:Ignorable="d">
+    <UserControl.KeyboardAccelerators>
+        <KeyboardAccelerator Key="Number1"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number2"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number3"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number4"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number5"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number6"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number7"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number8"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="Number9"
+                             Invoked="SelectTabNumber"
+                             Modifiers="Control"/>
+        <KeyboardAccelerator Key="W"
+                             Invoked="CloseSelectedTab"
+                             Modifiers="Control"/>
+    </UserControl.KeyboardAccelerators>
+
+    <Grid Background="{ThemeResource SystemBaseMediumHighColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="leftButton"
+                Grid.Column="0"
+               Background="Transparent"
+                Padding="0"
+                Foreground="{ThemeResource SystemControlForegroundAltHighBrush}"
+                Click="ScrollLeft"
+                Visibility="Collapsed" Content="(-">
+            
+        </Button>
+        <Button x:Name="rightButton"
+                Grid.Column="2"
+               Background="Transparent"
+                Padding="0"
+                Foreground="{ThemeResource SystemControlForegroundAltHighBrush}"
+                Click="ScrollRight"
+                Visibility="Collapsed" Content="-)">
+        </Button>
+
+        <ScrollViewer x:Name="scrollViewer"
+                      Grid.Column="1"
+                      Height="32"
+                      Padding="12,0,0,0"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      SizeChanged="OnSizeChanged"
+                      HorizontalScrollBarVisibility="Hidden"
+                      HorizontalScrollMode="Auto"
+                      VerticalScrollBarVisibility="Disabled"
+                      VerticalScrollMode="Disabled">
+
+            <!-- Replace with ItemRepeater as soon as ItemRepeater no longer contains bugs -->
+            <ItemsControl ItemsSource="{x:Bind local:DesktopSurface.Window.MainTabs}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="local:MainTab">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <HyperlinkButton Margin="6,0,2,2"
+                                             Padding="0"
+                                             Foreground="{ThemeResource SystemControlForegroundAltHighBrush}"
+                                             FontSize="14"
+                                             FontWeight="{x:Bind FontWeight, Mode=OneWay}"
+                                             Click="ViewInfoClick"
+                                             Content="{x:Bind Label, Mode=OneWay}"
+                                             Tag="{x:Bind}">
+                                <HyperlinkButton.ContentTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"/>
+                                    </DataTemplate>
+                                </HyperlinkButton.ContentTemplate>
+                            </HyperlinkButton>
+                            <Button Margin="0,0,6,0"
+                                    Padding="2"
+                                    Background="Transparent" 
+                                    Click="CloseTabClick"
+                                    Tag="{x:Bind}">
+                                <SymbolIcon Symbol="Clear"/>
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+          
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>

@@ -9,15 +9,33 @@
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="ControlWithDataBinding.xaml" />
+    <None Remove="DatabindingIssue.xaml" />
     <None Remove="ItemsControlWorksAsExpected.xaml" />
     <None Remove="ItemsRepeaterIssue.xaml" />
+    <None Remove="MainControl.xaml" />
     <None Remove="MainTabsPanel.xaml" />
+    <None Remove="Mdi\MainTabsPanel.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.6" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="8.0.0-preview3" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls" Version="8.0.0-preview3" />
+    <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.7" />
     <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview3.201113.0" />
     <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ControlWithDataBinding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="DatabindingIssue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +46,12 @@
 
   <ItemGroup>
     <Page Update="MainTabsPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
